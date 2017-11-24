@@ -14,10 +14,14 @@ sleep 5
 eval cd $icef
 
 ###TODO: run brapper
-nohup java -jar coreASIM/org.coreasim.biomics.wrapper/target/brapper.jar \
-	-m localhost -mp 9090 </dev/null >asim.log 2>&1 &
-
-sleep 10; $project/execute.sh
-cat asim.log
+if [ ! -p in ]; then
+    mkfifo in
+fi
+tail -f in | java -jar coreASIM/org.coreasim.biomics.wrapper/target/brapper.jar \
+	-m localhost -mp 9090 2>&1 &
 pid2=$!
+sleep 5; $project/execute.sh
+
 echo $pid $pid2
+sleep 60s
+kill $pid $pid2
