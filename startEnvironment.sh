@@ -13,7 +13,7 @@ pid=$!
 sleep 5
 eval cd $icef
 
-#run brapper
+###TODO: run brapper
 nohup java -jar coreASIM/org.coreasim.biomics.wrapper/target/brapper.jar \
 	-m localhost -mp 9090 </dev/null >asim.log 2>&1 &
 

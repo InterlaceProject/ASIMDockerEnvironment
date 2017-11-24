@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#path properties
 project=/home
 icef=$project/icef
 manager=$icef/manager

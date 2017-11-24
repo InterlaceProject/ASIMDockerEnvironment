@@ -32,4 +32,4 @@ RUN cd /home/icef/tools && \
       npm install
 
 COPY ./execute.sh ./asimrc ./startEnvironment.sh /home/
-EXPOSE 3000 8000 8080 9090
+#EXPOSE 3000 8000 8080 9090
