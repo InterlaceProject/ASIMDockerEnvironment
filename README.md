@@ -13,11 +13,11 @@ In order to build the docker container execute the following script
 build.sh
 ```
 
-This will generate an container image called asim
+This will generate an container image called **asim**
 
-## Execution specification
+## Execute specification
 
-This call will run the asim container naming it active_asim:
+This call will run the asim container naming it **active_asim**:
 
 ```bash
 execute.sh
