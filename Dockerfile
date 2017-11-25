@@ -31,5 +31,5 @@ RUN cd /home/icef/manager && \
 RUN cd /home/icef/tools && \
       npm install
 
-COPY ./execute.sh ./asimrc ./startEnvironment.sh /home/
+COPY ./execute.sh ./asimrc /home/
 #EXPOSE 3000 8000 8080 9090
