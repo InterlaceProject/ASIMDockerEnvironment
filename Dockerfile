@@ -19,8 +19,8 @@ RUN apt-get install -y  software-properties-common && \
 #clone project
 RUN cd /home/ && \
       git clone https://github.com/biomics/icef.git icef
-RUN cd /home/ && \
-      git clone https://github.com/InterlaceProject/ASIMSpec.git
+#RUN cd /home/ && \
+#      git clone https://github.com/InterlaceProject/ASIMSpec.git
 
 #build core asim
 RUN cd /home/icef/coreASIM/org.coreasim.parent && \
@@ -32,4 +32,5 @@ RUN cd /home/icef/tools && \
       npm install
 
 COPY ./scripts/execute.sh ./scripts/asimrc /home/
+RUN chmod a+x /home/*.sh
 #EXPOSE 3000 8000 8080 9090
