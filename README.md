@@ -8,10 +8,10 @@
 
 ## Before First Execution
 
-In order to build the docker container execute the following script
+In order to configure the environment like building the docker container and fetching the ASIM specifications, execute the following script
 
 ```bash
-build.sh
+configure
 ```
 
 This will generate a docker container image called **asim**
@@ -21,12 +21,12 @@ This will generate a docker container image called **asim**
 This call will run the ASIM specifications inside of the **asim** docker container naming it **active_asim**:
 
 ```bash
-execute.sh
+execute
 ```
 
 ## ASIM Specifications
 
-The INTERLACE ASIM Specifications are located in directory **ASIMSpec** of the main directory after build.sh has been executed. They may be edited and re-executed any time by calling **execute.sh**. For updateing a potentially old repository call **build.sh** again or go to directory **ASIMSpec** and execute **git pull**.
+The INTERLACE ASIM Specifications are located in directory **ASIMSpec** of the main directory after build.sh has been executed. They may be edited and re-executed any time by calling **execute**. For updateing a potentially old repository call **configure** again or go to directory **ASIMSpec** and execute **git pull**.
 
 ## scripts Directory
 

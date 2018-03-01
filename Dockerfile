@@ -31,6 +31,6 @@ RUN cd /home/icef/manager && \
 RUN cd /home/icef/tools && \
       npm install
 
-COPY ./scripts/execute.sh ./scripts/asimrc /home/
+COPY ./scripts/executeASIMSpec.sh ./scripts/asimrc /home/
 RUN chmod a+x /home/*.sh
 #EXPOSE 3000 8000 8080 9090
