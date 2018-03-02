@@ -3,8 +3,30 @@
 #set environment variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+#get os
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Win;;
+    MINGW*)     machine=Win;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+#fix path for windows
+if [ "$machine" == "Win" ]
+then
+  #fix path
+  DIR="${DIR//\//\\}"
+  DIR="${DIR/\\c/C:}"
+  
+  #export to fix path mangling bug
+  export MSYS_NO_PATHCONV=1
+  winpty bash $DIR/scripts/execute.sh $DIR
+  export MSYS_NO_PATHCONV=0
+else
+  $DIR/scripts/execute.sh $DIR
+fi
+
 #remove stale container if exists
 docker rm active_asim 2>/dev/null
-
-#start container
-docker run -v $DIR/ASIMSpec:/home/ASIMSpec  --name active_asim -it asim /home/executeASIMSpec.sh
