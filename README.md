@@ -10,7 +10,7 @@
 In order to configure the environment, execute the following script
 
 ```bash
-configure
+./configure
 ```
 
 This will generate a docker container image called **asim** where all the necessary frameworks are build and prepared for execution of the specifications.
@@ -20,7 +20,7 @@ This will generate a docker container image called **asim** where all the necess
 This call will run the ASIM specifications inside of the **asim** docker container naming it **active_asim**:
 
 ```bash
-execute
+./execute
 ```
 
 ## ASIM Specifications
