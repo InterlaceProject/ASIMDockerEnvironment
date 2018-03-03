@@ -1,12 +1,35 @@
 #!/bin/bash
+BUILD_ICEF=${1:-"nobuild"}
+
 if [ -d "ASIMSpec" ]; then
   echo "Updateing ASIMSpec repository..."
   cd ASIMSpec
   git pull
   cd ..
+  echo "ASIMSpec updated."
 else
   echo "Cloneing ASIMSpec repository..."
   git clone https://github.com/InterlaceProject/ASIMSpec
+  echo "ASIMSpec cloned."
 fi
-echo "done."
+
+if [ -d "icef" ]; then
+  echo "Updateing ICEF repository..."
+  cd icef
+  git pull
+  cd ..
+  echo "ICEF updated."
+else
+  echo "Cloneing ICEF repository..."
+  git clone https://github.com/biomics/icef.git icef
+  echo "ICEF cloned."
+
+  BUILD_ICEF="rebuild"
+fi
+# build container
 docker build -t asim .
+
+# build framework
+if [ "$BUILD_ICEF" == "rebuild" ]; then
+  ./execute /home/buildICEFDocker.sh
+fi

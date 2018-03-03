@@ -16,21 +16,10 @@ RUN apt-get install -y  software-properties-common && \
       echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
       apt-get install -y oracle-java8-installer
 
-#clone project
-RUN cd /home/ && \
-      git clone https://github.com/biomics/icef.git icef
-#RUN cd /home/ && \
-#      git clone https://github.com/InterlaceProject/ASIMSpec.git
+COPY  ./scripts/executeASIMSpec.sh \
+      ./scripts/asimrc \
+      ./scripts/buildICEFDocker.sh \
+      /home/
 
-#build core asim
-RUN cd /home/icef/coreASIM/org.coreasim.parent && \
-      mvn package
-#get missing node packages
-RUN cd /home/icef/manager && \
-      npm install
-RUN cd /home/icef/tools && \
-      npm install
-
-COPY ./scripts/executeASIMSpec.sh ./scripts/asimrc /home/
 RUN chmod a+x /home/*.sh
 #EXPOSE 3000 8000 8080 9090

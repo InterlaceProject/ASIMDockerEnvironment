@@ -2,6 +2,7 @@
 
 #set environment variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT=${1:-"/home/executeASIMSpec.sh"}
 
 #get os
 unameOut="$(uname -s)"
@@ -17,15 +18,15 @@ esac
 if [ "$machine" == "Win" ]
 then
   #fix path
-  DIR="${DIR//\//\\}"
-  DIR="${DIR/\\c/C:}"
+  WINDIR="${DIR//\//\\}"
+  WINDIR="${WINDIR/\\c/C:}"
   
   #export to fix path mangling bug
   export MSYS_NO_PATHCONV=1
-  winpty bash $DIR/scripts/runDocker.sh $DIR
+  winpty bash $DIR/scripts/runDocker.sh $WINDIR /$SCRIPT
   export MSYS_NO_PATHCONV=0
 else
-  $DIR/scripts/runDocker.sh $DIR
+  $DIR/scripts/runDocker.sh $DIR $SCRIPT
 fi
 
 #remove stale container if exists
