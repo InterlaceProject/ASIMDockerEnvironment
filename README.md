@@ -2,19 +2,18 @@
 
 ## Install
 
-  * install virtual box
   * install docker
   * install git (including git bash for windows)
 
 ## Before First Execution
 
-In order to configure the environment like building the docker container and fetching the ASIM specifications, execute the following script
+In order to configure the environment, execute the following script
 
 ```bash
 configure
 ```
 
-This will generate a docker container image called **asim**
+This will generate a docker container image called **asim** where all the necessary frameworks are build and prepared for execution of the specifications.
 
 ## Execute Specification
 
