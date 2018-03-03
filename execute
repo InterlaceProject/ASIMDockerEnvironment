@@ -22,10 +22,10 @@ then
   
   #export to fix path mangling bug
   export MSYS_NO_PATHCONV=1
-  winpty bash $DIR/scripts/execute.sh $DIR
+  winpty bash $DIR/scripts/runDocker.sh $DIR
   export MSYS_NO_PATHCONV=0
 else
-  $DIR/scripts/execute.sh $DIR
+  $DIR/scripts/runDocker.sh $DIR
 fi
 
 #remove stale container if exists
