@@ -1,9 +1,12 @@
 #!/bin/bash
 if [ -d "ASIMSpec" ]; then
+  echo "Updateing ASIMSpec repository..."
   cd ASIMSpec
   git pull
   cd ..
 else
+  echo "Cloneing ASIMSpec repository..."
   git clone https://github.com/InterlaceProject/ASIMSpec
 fi
+echo "done."
 docker build -t asim .
