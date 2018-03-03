@@ -13,7 +13,7 @@ In order to configure the environment, execute the following script
 ./configure
 ```
 
-This will generate a docker container image called **asim** where all the necessary frameworks are build and prepared for execution of the specifications.
+This will generate a docker container image called **asim** where all the necessary frameworks are build and prepared for execution of the specifications. The ICEF framework as well as the ASIM model specifcations are cloned outside of the container to simplify development.
 
 ## Execute Specification
 
@@ -30,8 +30,3 @@ The INTERLACE ASIM Specifications are cloned into the main directory after **con
 ## scripts Directory
 
 The bash scripts of that directory are used to start the ICEF framework manager as well as one brapper. Then the run.icef specifications located in directroy **ASIMSpec** are sent to the manager which distributes them to the brapper.
-
-## TODO
-
- * also clone icef framework into main directory (like ASIMSpec) and share in into running container
- * add .gitattributes entry in order to have correct line endings for framework files (always Linux style).
