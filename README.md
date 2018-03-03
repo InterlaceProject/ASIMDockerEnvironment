@@ -23,10 +23,15 @@ This call will run the ASIM specifications inside of the **asim** docker contain
 ./execute
 ```
 
-## ASIM Specifications
+## ASIM Specifications Notes
 
-The INTERLACE ASIM Specifications are located in directory **ASIMSpec** of the main directory after build.sh has been executed. They may be edited and re-executed any time by calling **execute**. For updateing a potentially old repository call **configure** again or go to directory **ASIMSpec** and execute **git pull**.
+The INTERLACE ASIM Specifications are cloned into the main directory after **configure** has been executed. The Specifications may be edited and re-executed any time by calling **execute**, because the cloned directory is shared into the running docker container. For updateing a potentially old repository call **configure** again or go to directory **ASIMSpec** directly and execute **git pull**.
 
 ## scripts Directory
 
-The bash scripts of that directory are used to start the ICEF framework manager as well as one brapper. Then the run.icef specifications located in directroy **ASIMSpec** are sent to the manager which distributes them to the brapper.  
+The bash scripts of that directory are used to start the ICEF framework manager as well as one brapper. Then the run.icef specifications located in directroy **ASIMSpec** are sent to the manager which distributes them to the brapper.
+
+## TODO
+
+ * also clone icef framework into main directory (like ASIMSpec) and share in into running container
+ * add .gitattributes entry in order to have correct line endings for framework files (always Linux style).
