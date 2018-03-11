@@ -15,7 +15,25 @@ fi
 if [ -d "icef" ]; then
   echo "Updateing ICEF repository..."
   cd icef
-  git pull
+  
+  UPSTREAM=${1:-'@{u}'}
+  LOCAL=$(git rev-parse @)
+  REMOTE=$(git rev-parse "$UPSTREAM")
+  BASE=$(git merge-base @ "$UPSTREAM")
+
+  if [ $LOCAL = $REMOTE ]; then
+    echo "Nothing to update."
+  elif [ $LOCAL = $BASE ]; then
+    git pull
+    BUILD_ICEF="rebuild"
+  elif [ $REMOTE = $BASE ]; then
+    echo "There are uncommitted changes to ICEF project, kindly solve manually."
+    exit
+  else
+    echo "ICEF remote and local repositories diverged, kindly solve manually."
+    exit
+  fi
+  
   cd ..
 else
   echo "Cloneing ICEF repository..."
