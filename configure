@@ -16,7 +16,7 @@ if [ -d "icef" ]; then
   echo "Updateing ICEF repository..."
   cd icef
   
-  UPSTREAM=${1:-'@{u}'}
+  UPSTREAM='@{u}'
   LOCAL=$(git rev-parse @)
   REMOTE=$(git rev-parse "$UPSTREAM")
   BASE=$(git merge-base @ "$UPSTREAM")
