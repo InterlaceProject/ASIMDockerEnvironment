@@ -37,7 +37,10 @@ if [ -d "icef" ]; then
   cd ..
 else
   echo "Cloneing ICEF repository..."
-  git clone https://github.com/biomics/icef.git icef
+  # biomics repository
+  #git clone https://github.com/biomics/icef.git icef
+  # Interlace repository
+  git clone https://github.com/InterlaceProject/icef.git
   echo "ICEF cloned."
 
   BUILD_ICEF="rebuild"
