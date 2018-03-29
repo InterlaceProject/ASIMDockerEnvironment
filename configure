@@ -26,6 +26,7 @@ if [ -d "icef" ]; then
   elif [ $LOCAL = $BASE ]; then
     git pull
     BUILD_ICEF="rebuild"
+    echo "ICEF needs rebuild..."
   elif [ $REMOTE = $BASE ]; then
     echo "There are uncommitted changes to ICEF project, kindly solve manually."
     exit
@@ -50,5 +51,6 @@ docker build -t asim .
 
 # build framework
 if [ "$BUILD_ICEF" == "rebuild" ]; then
+  echo "building framework..."
   ./execute /home/buildICEFDocker.sh
 fi
