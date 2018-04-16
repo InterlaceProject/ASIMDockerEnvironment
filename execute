@@ -14,6 +14,9 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
+#before execution get rid of executing container
+docker rm active_asim 2>/dev/null
+
 #fix path for windows
 if [ "$machine" == "Win" ]
 then

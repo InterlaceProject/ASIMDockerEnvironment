@@ -37,7 +37,7 @@ fi
 echo $! >> ~/pids
 
 #load specification run.icef
-sleep 5s; \
+sleep 10s; \
   echo "-------------------- submitting icef to manager -------------------"; \
   eval cd $tools; \
   eval node loadICEF.js $project/ASIMSpec/run.icef localhost 9090
